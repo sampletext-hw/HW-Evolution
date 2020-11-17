@@ -1,3 +1,5 @@
+from multiprocessing import Pool, cpu_count
+
 import nltk.data
 import sys
 from string import ascii_lowercase
@@ -29,6 +31,21 @@ def process_text(filename):
 
 if __name__ == "__main__":
     sentences = process_text("text_data/catcher_in_the_rye.txt")
-    for sentence in sentences:
-        print_evolution(sentence)
-        sys.stdout.flush()
+
+    pool = Pool(cpu_count())
+
+    print('PROCESSING')
+    results = pool.map_async(print_evolution, sentences)
+    pool.close()
+    pool.join()
+
+    print('PROCESSED')
+
+    for result in results.get():
+        print(result)
+
+    sys.stdout.flush()
+
+    # for sentence in sentences:
+    #     print_evolution(sentence)
+    #     sys.stdout.flush()

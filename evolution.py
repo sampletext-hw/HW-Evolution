@@ -109,7 +109,7 @@ def print_evolution(sentence):
     out = evolution(sentence)
     number_of_generations = out[1]
     best = out[0]
-    print(str(number_of_generations) + ", " + best.get_appearance())
+    return str(number_of_generations) + ", " + best.get_appearance()
 
 
 def print_genes(sentence):
