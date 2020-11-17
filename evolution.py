@@ -85,7 +85,7 @@ def is_present(selection: Creature, generation):
     return selection_word in generation_words
 
 
-def evolution(selection_word: str, max_num_generations: int = 2000):
+def evolution(selection_word: str, max_num_generations: int = 500):
     selection_word = selection_word.lower()
     random = random_str(len(selection_word))
     selection = Creature(selection_word, [])

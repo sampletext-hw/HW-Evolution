@@ -19,5 +19,5 @@ if __name__ == "__main__":
     plt.ylabel('Evos')
     plt.plot(df)
 
-    fig.savefig('anal_data.png')
+    fig.savefig('anal_data_500.png')
     fig.show()
